@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ai-knowledge-base"
+version = "0.1.0"
+description = "个人 AI 知识库后端：导入 md/txt/PDF/URL -> 分块 -> 嵌入 -> 语义搜索 -> RAG 问答"
+requires-python = ">=3.11"
+dependencies = [
+    "lancedb>=0.17",
+    "httpx>=0.27",
+    "typer>=0.12",
+    "pypdf>=4.0",
+    "fastapi>=0.115",
+    "uvicorn>=0.30",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+    "ruff>=0.6",
+]
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+
+# ruff：lint + format 单一配置源（AGENTS.md 约定）
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

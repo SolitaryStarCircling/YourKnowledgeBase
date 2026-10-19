@@ -1,0 +1,30 @@
+# 密钥与本地环境（红线：.env 绝不进 git）
+.env
+*.env.local
+
+# 本地数据（向量库 / SQLite 等全部落这里）
+backend/data/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# IDE / 系统
+.idea/
+.vscode/
+.DS_Store
+
+# Flutter
+frontend/.dart_tool/
+frontend/build/
+frontend/.flutter-plugins*
+
+# AI 协作工具工作目录（IDE 生成，非项目产物）
+.trae/
